@@ -4,8 +4,8 @@ import './Card.scss';
 const Card = ({ title, imageUrl }) => {
   return (
     <div className="card">
-      <img src={imageUrl} alt={title} className="card__image" />
-      <h2 className="card__title">{title}</h2>
+      <img src={imageUrl} alt={title} />
+      <h3 >{title}</h3>
     </div>
   );
 };

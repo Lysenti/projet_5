@@ -30,6 +30,26 @@
       }
     }
   }
-}
 
-  
+  .navigation-arrows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+
+    .arrow {
+      background: #ff6060;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 0 1rem;
+      cursor: pointer;
+      font-size: 1.5rem;
+      border-radius: 5px;
+      transform: rotate(0deg); 
+      &:hover {
+        background: #ff4040;
+      }
+    }
+  }
+}

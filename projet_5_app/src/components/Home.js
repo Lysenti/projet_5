@@ -13,7 +13,17 @@ const Home = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data.slice(indexOfFirstItem, indexOfFirstItem + itemsPerPage);
 
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+
+  const paginate = pageNumber => {
+    if (pageNumber < 1) {
+      setCurrentPage(totalPages);
+    } else if (pageNumber > totalPages) {
+      setCurrentPage(1);
+    } else {
+      setCurrentPage(pageNumber);
+    }
+  };
 
   return (
     <div className="home">
@@ -23,12 +33,16 @@ const Home = () => {
           <Card key={item.id} title={item.title} imageUrl={item.cover} />
         ))}
       </div>
-      <Pagination
-        itemsPerPage={itemsPerPage}
-        totalItems={data.length}
-        paginate={paginate}
-        currentPage={currentPage}
-      />
+      <div className="navigation-arrows">
+        <button onClick={() => paginate(currentPage - 1)} className="arrow left-arrow">&laquo;</button>
+        <Pagination
+          itemsPerPage={itemsPerPage}
+          totalItems={data.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
+        <button onClick={() => paginate(currentPage + 1)} className="arrow right-arrow">&raquo;</button>
+      </div>
     </div>
   );
 };

@@ -24,3 +24,4 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
 };
 
 export default Pagination;
+
