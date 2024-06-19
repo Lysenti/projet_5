@@ -4,7 +4,7 @@ import Layout from './Layout';
 import Home from './Home';
 import About from './About';
 import Contact from './Contact';
-import Appartements from './Appartements';
+import Logement from './Logement';
 import NotFound from './NotFound';
 
 const AppRouter = () => {
@@ -15,15 +15,12 @@ const AppRouter = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/appartements" element={<Appartements />} />
+          <Route path="/logement/:id" element={<Logement />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </Router>
   );
-}
+};
 
 export default AppRouter;
-
-
-

@@ -14,13 +14,7 @@ const Layout = ({ children }) => {
             <li>
               <Link to="/about">A Propos</Link>
             </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-            <li>
-              <Link to="/appartements">Appartements</Link>
-            </li>
-          </ul>
+           </ul>
         </nav>
       </header>
       <main className="layout__main">

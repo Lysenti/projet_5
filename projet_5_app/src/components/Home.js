@@ -15,7 +15,7 @@ const Home = () => {
 
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
-  const paginate = pageNumber => {
+  const paginate = (pageNumber) => {
     if (pageNumber < 1) {
       setCurrentPage(totalPages);
     } else if (pageNumber > totalPages) {
@@ -30,7 +30,7 @@ const Home = () => {
       <Banner imageUrl="url-de-votre-image" title="Chez vous, partout et ailleurs" />
       <div className="home__cards">
         {currentItems.map((item) => (
-          <Card key={item.id} title={item.title} imageUrl={item.cover} />
+          <Card key={item.id} id={item.id} title={item.title} imageUrl={item.cover} />
         ))}
       </div>
       <div className="navigation-arrows">
