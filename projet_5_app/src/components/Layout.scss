@@ -1,41 +1,103 @@
 .layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  
+
+  &__header {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  
-    &__header {
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
-      nav ul {
-        list-style: none;
-        display: flex;
-        justify-content: space-around;
-  
-        li a {
-          text-decoration: none;
-          color: #333;
-          font-weight: bold;
-  
-          &:hover {
-            color: #ff6347;
-          }
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-height: 200px;
+
+    .layout__logo-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%; 
+    }
+
+    .layout__logo {
+      height: 50px; 
+
+    }
+
+    .layout__nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+
+      li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+
+        &:hover {
+          color: #ff6347;
         }
       }
     }
-  
-    &__main {
-      flex: 1;
-      padding: 20px;
+  }
+
+
+
+  &__main {
+    flex: 1;
+    padding: 20px;
+  }
+
+  &__footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto; 
+  }
+}
+
+
+/* Media Queries pour les écrans plus petits */
+@media (max-width: 768px) {
+  .layout__header {
+    flex-direction: column;
+    align-items: flex-start; 
+    padding: 10px;
+
+    .layout__logo-nav {
+      flex-direction: column;
+      align-items: flex-start;
     }
-  
-    &__footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
+
+    .layout__nav {
+      ul {
+        flex-direction: column;
+        gap: 10px; 
+      }
     }
   }
-  
-  
+}
+
+@media (max-width: 480px) {
+  .layout__header {
+    padding: 5px;
+
+    .layout__logo {
+      height: 40px; 
+    }
+
+    .layout__nav {
+      ul {
+        gap: 5px; 
+      }
+
+      li a {
+        font-size: 0.9rem; 
+      }
+    }
+  }
+}

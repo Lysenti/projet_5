@@ -1,6 +1,22 @@
 .about {
+  .about__collapses {
+    margin: 20px;
+  }
+}
+
+/* Media Queries pour les écrans plus petits */
+@media (max-width: 768px) {
+  .about {
     .about__collapses {
-      margin: 20px;
+      margin: 15px; 
     }
   }
-  
+}
+
+@media (max-width: 480px) {
+  .about {
+    .about__collapses {
+      margin: 10px; 
+    }
+  }
+}

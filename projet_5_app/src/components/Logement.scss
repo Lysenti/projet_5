@@ -1,76 +1,193 @@
+.logement-container {
+  padding: 20px;
+}
+
 .logement {
-    padding: 20px;
-  
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px;
+
+  .banner {
+    text-align: center;
+    margin-bottom: 2rem;
+
     h1 {
-      font-size: 24px;
-      margin: 10px 0;
+      font-size: 2rem;
     }
-  
-    .location {
-      font-size: 18px;
-      color: grey;
+  }
+
+  .slideshow {
+    margin-bottom: 2rem;
+  }
+
+  .location {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    .tag {
+      background-color: #ff6060;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
     }
-  
-    .tags {
-      display: flex;
-      gap: 10px;
-      margin: 10px 0;
-  
-      .tag {
-        background-color: #ff5a5f;
-        color: white;
-        padding: 5px 10px;
-        border-radius: 5px;
-      }
+  }
+
+  .host {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    .host-name {
+      margin-right: 1rem;
     }
-  
-    .host {
-      display: flex;
-      align-items: center;
-  
-      .host-name {
-        margin-right: 10px;
-      }
-  
-      .host-picture {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-      }
+
+    .host-picture {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
     }
-  
-    .rating {
-      .star {
-        color: #e3e3e3;
-        font-size: 24px;
-      }
-  
-      .filled {
-        color: #ff5a5f;
-      }
-    }
-  
-    .description, .equipments {
-      margin: 20px 0;
-  
-      button {
-        background-color: #ff5a5f;
-        color: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        width: 100%;
-        text-align: left;
-        font-size: 16px;
-        border-radius: 5px;
-        margin-bottom: 10px;
-      }
-  
-      p, ul {
-        background-color: #f8f8f8;
-        padding: 10px;
-        border-radius: 5px;
+  }
+
+  .rating {
+    display: flex;
+    margin-bottom: 1rem;
+
+    .star {
+      font-size: 1.5rem;
+      color: #ff6060;
+      margin-right: 0.5rem;
+
+      &.filled {
+        color: #ffd700;
       }
     }
   }
-  
+
+  .description, .equipments {
+    margin-bottom: 1rem;
+
+    button {
+      background-color: #ff6060;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 0.5rem;
+
+      &:hover {
+        background-color: #ff4040;
+      }
+    }
+
+    p, ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+  }
+}
+
+/* Media Queries pour les écrans plus petits */
+@media (max-width: 768px) {
+  .logement {
+    padding: 15px;
+
+    .banner {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .location {
+      font-size: 1.2rem; 
+    }
+
+    .tags {
+      gap: 0.4rem; 
+
+      .tag {
+        padding: 0.4rem 0.8rem; 
+      }
+    }
+
+    .host {
+      .host-name {
+        margin-right: 0.8rem; 
+      }
+
+      .host-picture {
+        width: 40px; 
+        height: 40px;
+      }
+    }
+
+    .rating {
+      .star {
+        font-size: 1.2rem; 
+        margin-right: 0.4rem; 
+      }
+    }
+
+    .description, .equipments {
+      button {
+        padding: 0.4rem 0.8rem; 
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .logement {
+    padding: 10px;
+
+    .banner {
+      h1 {
+        font-size: 1.2rem; 
+      }
+    }
+
+    .location {
+      font-size: 1rem; 
+    }
+
+    .tags {
+      gap: 0.3rem; 
+
+      .tag {
+        padding: 0.3rem 0.6rem; 
+      }
+    }
+
+    .host {
+      .host-name {
+        margin-right: 0.6rem; 
+      }
+
+      .host-picture {
+        width: 30px; 
+        height: 30px; 
+      }
+    }
+
+    .rating {
+      .star {
+        font-size: 1rem; 
+        margin-right: 0.3rem; 
+      }
+    }
+
+    .description, .equipments {
+      button {
+        padding: 0.3rem 0.6rem; 
+      }
+    }
+  }
+}

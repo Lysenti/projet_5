@@ -1,13 +1,40 @@
 .banner {
-    background-image: url('https://path-to-your-banner-image.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 2rem;
+  background-size: cover;
+  background-position: center;
+  height: 75px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+
+  .banner__title {
+    margin: 0;
+    font-size: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
-  
+}
+
+/* Media Queries pour les écrans plus petits */
+@media (max-width: 768px) {
+  .banner {
+    height: 50px; 
+    padding: 15px;
+
+    .banner__title {
+      font-size: 1.2rem; 
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    height: 40px; 
+    padding: 10px;
+
+    .banner__title {
+      font-size: 1rem; 
+    }
+  }
+}

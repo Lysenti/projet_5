@@ -1,15 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Slideshow.scss';
 
 const Slideshow = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  useEffect(() => {
+    if (animating) {
+      const timer = setTimeout(() => {
+        setAnimating(false);
+      }, 500); // Durée de l'animation prolongée à 0.5 seconde
+
+      return () => clearTimeout(timer);
+    }
+  }, [animating]);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    if (!animating) {
+      setAnimating(true);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 500);
+    }
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    if (!animating) {
+      setAnimating(true);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+      }, 500);
+    }
   };
 
   return (
@@ -19,7 +40,16 @@ const Slideshow = ({ images }) => {
           &laquo;
         </button>
       )}
-      <img src={images[currentIndex]} alt="Slideshow" className="slide" />
+      <div className="slide-container">
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt="Slideshow"
+            className={`slide ${index === currentIndex ? 'active' : ''} ${animating ? 'animating' : ''}`}
+          />
+        ))}
+      </div>
       {images.length > 1 && (
         <button onClick={nextSlide} className="arrow right-arrow">
           &raquo;
@@ -35,4 +65,3 @@ const Slideshow = ({ images }) => {
 };
 
 export default Slideshow;
-
