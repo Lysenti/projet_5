@@ -8,6 +8,10 @@
       width: 100%;
       height: 200px; 
       object-fit: cover; 
+      border-radius: 20px;
+      position: relative;
+      filter: brightness(50%);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
 
     .home__banner-title {
@@ -18,6 +22,7 @@
       font-size: 1.5rem;
       color: white;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      z-index: 2;
     }
   }
 
@@ -38,8 +43,7 @@
     }
 
     .card {
-      background: #ff6060;
-      padding: 1rem;
+      padding: 0;
       border-radius: 8px;
       text-align: center;
 
@@ -76,5 +80,13 @@
         background: #ff4040;
       }
     }
+  }
+}
+
+/* Media Query pour 375px de largeur */
+@media (max-width: 375px) {
+  .home__cards {
+    grid-template-columns: 1fr; // Affiche les cards en colonne
+    gap: 0.5rem; // Ajuste l'espacement entre les cards
   }
 }

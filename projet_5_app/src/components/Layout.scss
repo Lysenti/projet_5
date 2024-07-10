@@ -2,27 +2,33 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  
+  width: 100%; // Assurer que le layout prend toute la largeur disponible
+  overflow-x: hidden;
+
+  &__header, &__main, &__footer {
+    width: 100%;
+    max-width: 1240px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+    box-sizing: border-box;
+  }
 
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
-    padding: 10px 20px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    min-height: 200px;
+    min-height: 100px;
 
     .layout__logo-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 100%; 
+      width: 100%;
     }
 
     .layout__logo {
-      height: 50px; 
-
+      height: 50px;
     }
 
     .layout__nav ul {
@@ -39,27 +45,25 @@
 
         &:hover {
           color: #ff6347;
+          text-decoration: underline;
         }
       }
     }
   }
 
-
-
   &__main {
     flex: 1;
-    padding: 20px;
+    padding: 20px 0;
   }
 
   &__footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 10px;
-    margin-top: auto; 
+    padding: 10px 20px;
+    margin-top: auto;
   }
 }
-
 
 /* Media Queries pour les écrans plus petits */
 @media (max-width: 768px) {
@@ -73,12 +77,14 @@
       align-items: flex-start;
     }
 
-    .layout__nav {
-      ul {
-        flex-direction: column;
-        gap: 10px; 
-      }
+    .layout__nav ul {
+      flex-direction: column;
+      gap: 10px; 
     }
+  }
+
+  .layout__main, .layout__footer {
+    padding: 0 10px; 
   }
 }
 
@@ -90,14 +96,39 @@
       height: 40px; 
     }
 
-    .layout__nav {
-      ul {
-        gap: 5px; 
-      }
+    .layout__nav ul {
+      gap: 5px; 
 
       li a {
         font-size: 0.9rem; 
       }
     }
+  }
+
+  .layout__main, .layout__footer {
+    padding: 0 5px; 
+  }
+}
+
+/* Media Query pour les écrans de 375px de largeur */
+@media (max-width: 375px) {
+  .layout__header {
+    padding: 3px;
+
+    .layout__logo {
+      height: 35px; 
+    }
+
+    .layout__nav ul {
+      gap: 3px; 
+
+      li a {
+        font-size: 0.8rem; 
+      }
+    }
+  }
+
+  .layout__main, .layout__footer {
+    padding: 0 3px; 
   }
 }

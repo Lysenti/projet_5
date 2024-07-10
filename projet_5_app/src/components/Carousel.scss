@@ -89,3 +89,19 @@
     }
   }
 }
+
+/* Media Query pour les écrans de 375px de largeur */
+@media (max-width: 375px) {
+  .carousel--column {
+    display: flex;
+    flex-direction: column; // Affiche les images en colonne
+
+    img {
+      margin-bottom: 10px; // Ajoute un espace entre les images
+    }
+
+    .carousel__button, .carousel__counter {
+      display: none; // Masque les boutons de navigation et le compteur
+    }
+  }
+}

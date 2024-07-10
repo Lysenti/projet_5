@@ -8,13 +8,21 @@ import bannerImage from '../assets/bannerImage.png'; // Importez l'image de la b
 const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [animating, setAnimating] = useState(false);
-  const itemsPerPage = 6;
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const itemsPerPage = windowWidth <= 375 ? 3 : 6;
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data.slice(indexOfFirstItem, indexOfFirstItem + itemsPerPage);
 
   const totalPages = Math.ceil(data.length / itemsPerPage);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if (animating) {

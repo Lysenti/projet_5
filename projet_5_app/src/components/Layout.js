@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Layout.scss';
-import logo from '../assets/logo.png'; // Importez le logo
+import logo from '../assets/logo.png'; 
 
 const Layout = ({ children }) => {
   return (

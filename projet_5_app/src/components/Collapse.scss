@@ -1,5 +1,5 @@
 .collapse {
-  border: 1px solid #ccc;
+  border: 1px solid white;
   margin: 10px 0;
   border-radius: 5px;
   overflow: hidden;
@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f7f7f7;
+    background-color: #ff6060;
     padding: 10px;
     cursor: pointer;
 
@@ -16,17 +16,28 @@
       margin: 0;
     }
 
-    button {
+    .collapse__button {
       background: none;
       border: none;
       font-size: 1.5rem;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      .collapse__icon {
+        color: white;
+        transition: transform 0.3s ease;
+      }
+
+      &.open .collapse__icon {
+        transform: rotate(180deg); // Rotation de 180 degrés pour pointer vers le bas
+      }
     }
   }
 
   &__content {
     padding: 10px;
-    background-color: white;
+    background-color: #f0f0f0;
   }
 }
 
@@ -67,6 +78,23 @@
 
     &__content {
       padding: 6px; 
+    }
+  }
+}
+
+/* Media Query pour les écrans de 375px de largeur */
+@media (max-width: 375px) {
+  .collapse {
+    &__header {
+      padding: 5px;
+
+      button {
+        font-size: 0.9rem;
+      }
+    }
+
+    &__content {
+      padding: 5px;
     }
   }
 }
