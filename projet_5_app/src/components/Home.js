@@ -10,6 +10,12 @@ const Home = () => {
   const [animating, setAnimating] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const itemsPerPage = windowWidth <= 375 ? 3 : 6;
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -17,22 +23,6 @@ const Home = () => {
   const currentItems = data.slice(indexOfFirstItem, indexOfFirstItem + itemsPerPage);
 
   const totalPages = Math.ceil(data.length / itemsPerPage);
-
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (animating) {
-      const timer = setTimeout(() => {
-        setAnimating(false);
-      }, 500); // Durée de l'animation
-
-      return () => clearTimeout(timer);
-    }
-  }, [animating]);
 
   const paginate = (pageNumber) => {
     if (!animating) {
@@ -45,6 +35,7 @@ const Home = () => {
         } else {
           setCurrentPage(pageNumber);
         }
+        setAnimating(false);
       }, 500);
     }
   };
