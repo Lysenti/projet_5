@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import data from '../data.json';
 import Slideshow from './Slideshow';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import './Logement.scss';
 
 const Logement = () => {
@@ -21,47 +19,45 @@ const Logement = () => {
     <div className="logement-container">
       <div className="logement">
         <Slideshow images={logement.pictures} />
-        <div className="logement-header">
-          <h1>{logement.title}</h1>
-          <div className="host">
-            <div className="host-name">{logement.host.name}</div>
-            <img className="host-picture" src={logement.host.picture} alt={logement.host.name} />
+        <div className="logement-content">
+          <div className="logement-details">
+            <div className="logement-header">
+              <h1>{logement.title}</h1>
+            </div>
+            <div className="location">{logement.location}</div>
+            <div className="tags">
+              {logement.tags.map((tag, index) => (
+                <span key={index} className="tag">{tag}</span>
+              ))}
+            </div>
           </div>
-        </div>
-        <p className="location">{logement.location}</p>
-        <div className="tags-rating">
-          <div className="tags">
-            {logement.tags.map((tag, index) => (
-              <span key={index} className="tag">{tag}</span>
-            ))}
-          </div>
-          <div className="rating">
-            {Array.from({ length: 5 }, (_, index) => (
-              <span key={index} className={index < logement.rating ? 'star filled' : 'star'}>&#9733;</span>
-            ))}
+          <div className="rating-host">
+            <div className="host">
+              <div className="host-name">{logement.host.name}</div>
+              <img className="host-picture" src={logement.host.picture} alt={logement.host.name} />
+            </div>
+            <div className="rating">
+              {Array.from({ length: 5 }, (_, index) => (
+                <span key={index} className={index < logement.rating ? 'star filled' : 'star'}>&#9733;</span>
+              ))}
+            </div>
           </div>
         </div>
         <div className="collapse-container">
           <div className="description">
-            <div className="collapse-header" onClick={() => setShowDescription(!showDescription)}>
-              <button>
+            <div className="collapse-header">
+              <button onClick={() => setShowDescription(!showDescription)}>
                 Description
-                <FontAwesomeIcon 
-                  icon={faChevronDown} 
-                  className={`collapse-icon ${showDescription ? 'rotate' : ''}`} 
-                />
+                <span className={`collapse-icon ${showDescription ? 'rotate' : ''}`}>&#9660;</span>
               </button>
             </div>
             {showDescription && <p>{logement.description}</p>}
           </div>
           <div className="equipments">
-            <div className="collapse-header" onClick={() => setShowEquipments(!showEquipments)}>
-              <button>
+            <div className="collapse-header">
+              <button onClick={() => setShowEquipments(!showEquipments)}>
                 Équipements
-                <FontAwesomeIcon 
-                  icon={faChevronDown} 
-                  className={`collapse-icon ${showEquipments ? 'rotate' : ''}`} 
-                />
+                <span className={`collapse-icon ${showEquipments ? 'rotate' : ''}`}>&#9660;</span>
               </button>
             </div>
             {showEquipments && (

@@ -70,3 +70,22 @@
     z-index: 2;
   }
 }
+
+/* Media Queries pour les écrans plus petits */
+@media (max-width: 768px) {
+  .slideshow {
+    height: 300px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .slideshow {
+    height: 200px; 
+  }
+}
+
+@media (max-width: 375px) {
+  .slideshow {
+    height: 150px; 
+  }
+}

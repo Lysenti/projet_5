@@ -50,7 +50,7 @@
 
       .card__image-container {
         border-radius: 8px;
-        height: 200px; // Ajuster pour les grands écrans
+        height: 200px; 
       }
 
       .card__image {
@@ -62,6 +62,10 @@
       .card__title {
         margin-top: 0.5rem;
         color: white;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        z-index: 2;
       }
     }
   }
@@ -93,6 +97,16 @@
 /* Media Query pour 375px de largeur */
 @media (max-width: 375px) {
   .home {
+    .home__banner {
+      .home__banner-image {
+        height: 100px !important; 
+      }
+
+      .home__banner-title {
+        font-size: 1rem !important;
+      }
+    }
+
     .home__cards {
       grid-template-columns: 1fr !important; 
       gap: 0.5rem !important; 
@@ -115,6 +129,10 @@
 
         .card__title {
           font-size: 0.8rem !important;
+          position: absolute;
+          bottom: 10px;
+          left: 10px;
+          z-index: 2;
         }
       }
     }

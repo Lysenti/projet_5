@@ -25,6 +25,7 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
+      gap: 20px; /* Ajuster l'écart initial */
     }
 
     .layout__logo {
@@ -68,18 +69,20 @@
 /* Media Queries pour les écrans plus petits */
 @media (max-width: 768px) {
   .layout__header {
-    flex-direction: column;
-    align-items: flex-start; 
-    padding: 10px;
+    .layout__logo {
+      height: 45px;
+    }
 
     .layout__logo-nav {
-      flex-direction: column;
-      align-items: flex-start;
+      gap: 10px; /* Réduire l'écart entre le logo et les liens */
     }
 
     .layout__nav ul {
-      flex-direction: column;
       gap: 10px; 
+
+      li a {
+        font-size: 1rem; /* Réduire la taille de la police */
+      }
     }
   }
 
@@ -90,17 +93,19 @@
 
 @media (max-width: 480px) {
   .layout__header {
-    padding: 5px;
-
     .layout__logo {
       height: 40px; 
+    }
+
+    .layout__logo-nav {
+      gap: 5px; /* Réduire encore plus l'écart entre le logo et les liens */
     }
 
     .layout__nav ul {
       gap: 5px; 
 
       li a {
-        font-size: 0.9rem; 
+        font-size: 0.9rem; /* Réduire davantage la taille de la police */
       }
     }
   }
@@ -113,17 +118,19 @@
 /* Media Query pour les écrans de 375px de largeur */
 @media (max-width: 375px) {
   .layout__header {
-    padding: 3px;
-
     .layout__logo {
       height: 35px; 
+    }
+
+    .layout__logo-nav {
+      gap: 3px; /* Réduire l'écart au minimum entre le logo et les liens */
     }
 
     .layout__nav ul {
       gap: 3px; 
 
       li a {
-        font-size: 0.8rem; 
+        font-size: 0.8rem; /* Réduire la taille de la police */
       }
     }
   }
@@ -131,4 +138,8 @@
   .layout__main, .layout__footer {
     padding: 0 3px; 
   }
+}
+
+.layout__footer {
+  height: 300px;
 }
