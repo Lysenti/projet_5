@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import data from '../data.json';
 import Slideshow from './Slideshow';
 import './Logement.scss';
@@ -12,7 +12,7 @@ const Logement = () => {
   const [showEquipments, setShowEquipments] = useState(false);
 
   if (!logement) {
-    return <div>Logement non trouvé</div>;
+    return <Navigate to="/notfound" />;
   }
 
   return (
@@ -32,9 +32,11 @@ const Logement = () => {
             </div>
           </div>
           <div className="rating-host">
-            <div className="host">
+            <div className="host-container">
               <div className="host-name">{logement.host.name}</div>
-              <img className="host-picture" src={logement.host.picture} alt={logement.host.name} />
+              <div className="host-picture-container">
+                <img className="host-picture" src={logement.host.picture} alt={logement.host.name} />
+              </div>
             </div>
             <div className="rating">
               {Array.from({ length: 5 }, (_, index) => (

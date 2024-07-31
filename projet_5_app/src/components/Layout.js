@@ -25,6 +25,7 @@ const Layout = ({ children }) => {
         {children}
       </main>
       <footer className="layout__footer">
+        <img src={logo} alt="Kasa Logo" className="layout__footer-logo" />
         <p>© 2020 Kasa. All rights reserved</p>
       </footer>
     </div>

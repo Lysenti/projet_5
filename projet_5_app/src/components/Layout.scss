@@ -64,6 +64,11 @@
     padding: 10px 20px;
     margin-top: auto;
   }
+  .layout__footer-logo {
+    height: 30px;
+    margin-bottom: 10px;
+    filter: brightness(0) invert(1); 
+  }
 }
 
 /* Media Queries pour les écrans plus petits */
