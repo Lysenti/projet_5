@@ -30,12 +30,25 @@
       }
 
       &.open .collapse__icon {
-        transform: rotate(180deg); // Rotation de 180 degrés pour pointer vers le bas
+        transform: rotate(180deg); 
       }
     }
   }
 
   &__content {
+    overflow: hidden;
+    transition: height 0.3s ease;
+    height: 0;
+    padding: 0 10px;
+
+    &--open {
+      height: auto;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+  }
+
+  &__text {
     padding: 10px;
     background-color: #f0f0f0;
   }
@@ -45,19 +58,23 @@
 @media (max-width: 768px) {
   .collapse {
     &__header {
-      padding: 8px; 
+      padding: 8px;
 
       h2 {
-        font-size: 1.2rem; 
+        font-size: 1.2rem;
       }
 
       button {
-        font-size: 1.3rem; 
+        font-size: 1.3rem;
       }
     }
 
     &__content {
-      padding: 8px; 
+      padding: 0 8px;
+
+      &--open {
+        padding: 8px;
+      }
     }
   }
 }
@@ -65,19 +82,23 @@
 @media (max-width: 480px) {
   .collapse {
     &__header {
-      padding: 6px; 
+      padding: 6px;
 
       h2 {
-        font-size: 1rem; 
+        font-size: 1rem;
       }
 
       button {
-        font-size: 1.1rem; 
+        font-size: 1.1rem;
       }
     }
 
     &__content {
-      padding: 6px; 
+      padding: 0 6px;
+
+      &--open {
+        padding: 6px;
+      }
     }
   }
 }
@@ -94,7 +115,11 @@
     }
 
     &__content {
-      padding: 5px;
+      padding: 0 5px;
+
+      &--open {
+        padding: 5px;
+      }
     }
   }
 }
