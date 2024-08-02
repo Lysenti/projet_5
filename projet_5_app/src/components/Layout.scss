@@ -35,41 +35,49 @@
     .layout__nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 50px;
       padding: 0;
       margin: 0;
 
-      li a {
+      .nav-link {
         text-decoration: none;
         color: #333;
         font-weight: bold;
 
         &:hover {
+        color: #ff6347;
+        text-decoration: underline;
+        }
+
+        &.active {
           color: #ff6347;
           text-decoration: underline;
-        }
       }
     }
   }
+}
 
-  &__main {
-    flex: 1;
-    padding: 20px 0;
-  }
+&__main {
+  flex: 1;
+  padding: 20px 0;
+ }
 
-  &__footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 20px;
-    margin-top: auto;
-  }
+ &__footer {
+  background-color: #000000;
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+  margin-top: auto;
+  
   .layout__footer-logo {
     height: 30px;
-    margin-bottom: 10px;
+    margin-top: 50px;
+    margin-bottom: 30px;
     filter: brightness(0) invert(1); 
+    }
   }
 }
+
 
 /* Media Queries pour les écrans plus petits */
 @media (max-width: 768px) {
@@ -79,14 +87,14 @@
     }
 
     .layout__logo-nav {
-      gap: 10px; /* Réduire l'écart entre le logo et les liens */
+      gap: 10px; 
     }
 
     .layout__nav ul {
       gap: 10px; 
 
       li a {
-        font-size: 1rem; /* Réduire la taille de la police */
+        font-size: 1rem; 
       }
     }
   }
@@ -103,14 +111,14 @@
     }
 
     .layout__logo-nav {
-      gap: 5px; /* Réduire encore plus l'écart entre le logo et les liens */
+      gap: 5px; 
     }
 
     .layout__nav ul {
-      gap: 5px; 
+      gap: 10px; 
 
       li a {
-        font-size: 0.9rem; /* Réduire davantage la taille de la police */
+        font-size: 0.9rem; 
       }
     }
   }
@@ -123,19 +131,17 @@
 /* Media Query pour les écrans de 375px de largeur */
 @media (max-width: 375px) {
   .layout__header {
+
     .layout__logo {
       height: 35px; 
     }
 
-    .layout__logo-nav {
-      gap: 3px; /* Réduire l'écart au minimum entre le logo et les liens */
-    }
 
     .layout__nav ul {
-      gap: 3px; 
+      gap: 30px; 
 
       li a {
-        font-size: 0.8rem; /* Réduire la taille de la police */
+        font-size: 0.8rem; 
       }
     }
   }
@@ -145,6 +151,6 @@
   }
 }
 
-.layout__footer {
-  height: 300px;
-}
+  .layout__footer {
+    height: 300px;
+  }

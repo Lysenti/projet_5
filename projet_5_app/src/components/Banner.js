@@ -1,10 +1,11 @@
 import React from 'react';
 import './Banner.scss';
 
-const Banner = ({ imageUrl, title }) => {
+const Banner = ({ imageUrl, title, filter, boxShadow }) => {
   return (
-    <div className="banner" style={{ backgroundImage: `url(${imageUrl})` }}>
-      <h1 className="banner__title">{title}</h1>
+    <div className={`banner ${boxShadow ? 'box-shadow' : ''}`}>
+      <img src={imageUrl} alt="Banner" className="banner__image" style={{ filter }} />
+      {title && <h1 className="banner__title">{title}</h1>}
     </div>
   );
 };

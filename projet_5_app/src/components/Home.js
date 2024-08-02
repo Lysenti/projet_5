@@ -3,6 +3,7 @@ import Card from './Card';
 import data from '../data.json';
 import Pagination from './Pagination';
 import './Home.scss';
+import Banner from './Banner';
 import bannerImage from '../assets/bannerImage.png'; // Importez l'image de la bannière
 
 const Home = () => {
@@ -42,10 +43,12 @@ const Home = () => {
 
   return (
     <div className="home">
-      <div className="home__banner">
-        <img src={bannerImage} alt="Banner" className="home__banner-image" />
-        <h1 className="home__banner-title">Chez vous, partout et ailleurs</h1>
-      </div>
+      <Banner 
+        imageUrl={bannerImage} 
+        title="Chez vous, partout et ailleurs" 
+        filter="brightness(50%)" 
+        boxShadow={true}
+      />
       <div className={`home__cards ${animating ? 'fade-out' : 'fade-in'}`}>
         {currentItems.map((item) => (
           <Card key={item.id} id={item.id} title={item.title} imageUrl={item.cover} />

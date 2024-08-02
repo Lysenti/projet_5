@@ -1,6 +1,7 @@
 import React from 'react';
 import Collapse from './Collapse';
 import Banner from './Banner';
+import aboutBannerImage from '../assets/AboutImage.png';
 import './About.scss';
 
 const About = () => {
@@ -25,7 +26,7 @@ const About = () => {
 
   return (
     <div className="about">
-      <Banner imageUrl="url-de-votre-image" title="" />
+      <Banner imageUrl={aboutBannerImage} filter="brightness(80%)" />
       <div className="about__collapses">
         {collapsesData.map((item, index) => (
           <Collapse key={index} title={item.title} content={item.content} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Layout.scss';
 import logo from '../assets/logo.png'; 
 
@@ -12,10 +12,10 @@ const Layout = ({ children }) => {
           <nav className="layout__nav">
             <ul>
               <li>
-                <Link to="/">Accueil</Link>
+                <NavLink to="/" className= "nav-link" activeClassName="active">Accueil</NavLink>
               </li>
               <li>
-                <Link to="/about">À Propos</Link>
+                <NavLink to="/about"  className="nav-link" activeClassName="active">À Propos</NavLink>
               </li>
             </ul>
           </nav>
