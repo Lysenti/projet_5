@@ -39,45 +39,46 @@
       padding: 0;
       margin: 0;
 
-      .nav-link {
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
+      li {
+        .nav-link {
+          text-decoration: none;
+          color: #333;
+          font-weight: bold;
 
-        &:hover {
-        color: #ff6347;
-        text-decoration: underline;
+          &:hover {
+            color: #ff6347;
+            text-decoration: underline;
+          }
+
+          &.active {
+            color: #ff6347;
+            text-decoration: underline;
+          }
         }
-
-        &.active {
-          color: #ff6347;
-          text-decoration: underline;
       }
     }
   }
-}
 
-&__main {
-  flex: 1;
-  padding: 20px 0;
- }
+  &__main {
+    flex: 1;
+    padding: 20px 0;
+  }
 
- &__footer {
-  background-color: #000000;
-  color: #fff;
-  text-align: center;
-  padding: 10px 20px;
-  margin-top: auto;
+  &__footer {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    margin-top: auto;
   
-  .layout__footer-logo {
-    height: 30px;
-    margin-top: 50px;
-    margin-bottom: 30px;
-    filter: brightness(0) invert(1); 
+    .layout__footer-logo {
+      height: 30px;
+      margin-top: 50px;
+      margin-bottom: 30px;
+      filter: brightness(0) invert(1); 
     }
   }
 }
-
 
 /* Media Queries pour les écrans plus petits */
 @media (max-width: 768px) {
@@ -93,8 +94,10 @@
     .layout__nav ul {
       gap: 10px; 
 
-      li a {
-        font-size: 1rem; 
+      li {
+        a {
+          font-size: 1rem; 
+        }
       }
     }
   }
@@ -117,8 +120,10 @@
     .layout__nav ul {
       gap: 10px; 
 
-      li a {
-        font-size: 0.9rem; 
+      li {
+        a {
+          font-size: 0.9rem; 
+        }
       }
     }
   }
@@ -136,12 +141,13 @@
       height: 35px; 
     }
 
-
     .layout__nav ul {
       gap: 30px; 
 
-      li a {
-        font-size: 0.8rem; 
+      li {
+        a {
+          font-size: 0.8rem; 
+        }
       }
     }
   }
@@ -151,6 +157,6 @@
   }
 }
 
-  .layout__footer {
-    height: 300px;
-  }
+.layout__footer {
+  height: 300px;
+}

@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import data from '../data.json';
 import Slideshow from './Slideshow';
+import Collapse from './Collapse';
 import './Logement.scss';
 
 const Logement = () => {
   const { id } = useParams();
   const logement = data.find((item) => item.id === id);
-
-  const [showDescription, setShowDescription] = useState(false);
-  const [showEquipments, setShowEquipments] = useState(false);
 
   if (!logement) {
     return <Navigate to="/notfound" />;
@@ -46,30 +44,17 @@ const Logement = () => {
           </div>
         </div>
         <div className="collapse-container">
-          <div className="description">
-            <div className="collapse-header">
-              <button onClick={() => setShowDescription(!showDescription)}>
-                Description
-                <span className={`collapse-icon ${showDescription ? 'rotate' : ''}`}>&#9660;</span>
-              </button>
-            </div>
-            {showDescription && <p>{logement.description}</p>}
-          </div>
-          <div className="equipments">
-            <div className="collapse-header">
-              <button onClick={() => setShowEquipments(!showEquipments)}>
-                Équipements
-                <span className={`collapse-icon ${showEquipments ? 'rotate' : ''}`}>&#9660;</span>
-              </button>
-            </div>
-            {showEquipments && (
+        <Collapse title="Description" content={logement.description} />
+        <Collapse 
+            title="Équipements" 
+            content={(
               <ul>
                 {logement.equipments.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
               </ul>
-            )}
-          </div>
+            )} 
+          />
         </div>
       </div>
     </div>

@@ -12,10 +12,10 @@ const Layout = ({ children }) => {
           <nav className="layout__nav">
             <ul>
               <li>
-                <NavLink to="/" className= "nav-link" activeClassName="active">Accueil</NavLink>
+                <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Accueil</NavLink>
               </li>
               <li>
-                <NavLink to="/about"  className="nav-link" activeClassName="active">À Propos</NavLink>
+                <NavLink to="/about"  className={({ isActive }) => (isActive ? 'active' : '')}>À Propos</NavLink>
               </li>
             </ul>
           </nav>
