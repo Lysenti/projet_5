@@ -1,3 +1,7 @@
+// Layout.scss
+@import 'variables';
+@import 'mixins';
+
 .layout {
   display: flex;
   flex-direction: column;
@@ -42,16 +46,16 @@
       li {
         .nav-link {
           text-decoration: none;
-          color: #333;
+          color: $secondary-color;
           font-weight: bold;
 
           &:hover {
-            color: #ff6347;
+            color: lighten($primary-color, 10%);
             text-decoration: underline;
           }
 
           &.active {
-            color: #ff6347;
+            color: lighten($primary-color, 10%);
             text-decoration: underline;
           }
         }
@@ -65,12 +69,12 @@
   }
 
   &__footer {
-    background-color: #000000;
-    color: #fff;
+    background-color: black;
+    color: white;
     text-align: center;
     padding: 10px 20px;
     margin-top: auto;
-  
+
     .layout__footer-logo {
       height: 30px;
       margin-top: 50px;

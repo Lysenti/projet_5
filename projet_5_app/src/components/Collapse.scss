@@ -1,20 +1,38 @@
+@import 'variables';
+@import 'mixins';
+
+// Variables
+$text-color: white;
+$transition-time: 0.3s;
+
+// Mixin pour la transition
+@mixin transition($property, $duration, $ease) {
+  transition: $property $duration $ease;
+}
+
+// Variables de breakpoint
+$breakpoint-medium: 768px;
+$breakpoint-small: 480px;
+$breakpoint-extra-small: 375px;
+
 .collapse {
-  border: 1px solid white;
+  border: 1px solid $text-color;
   margin: 10px 0;
-  border-radius: 5px;
+  @include border-radius(5px);
   overflow: hidden;
+  @include transition(all, $transition-time, ease-in-out);
 
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ff6060;
+    background-color: $primary-color;
     padding: 10px;
     cursor: pointer;
 
     h2 {
       margin: 0;
-      color: white; 
+      color: $text-color;
     }
 
     .collapse__button {
@@ -26,8 +44,8 @@
       align-items: center;
 
       .collapse__icon {
-        color: white;
-        transition: transform 0.3s ease;
+        color: $text-color;
+        @include transition(transform, $transition-time, ease);
       }
 
       &.open .collapse__icon {
@@ -38,26 +56,25 @@
 
   &__content {
     overflow: hidden;
-    transition: height 0.3s ease;
+    @include transition(height, $transition-time, ease);
     height: 0;
     padding: 0 10px;
+    text-align: left;
 
     &--open {
       height: auto;
       padding: 10px;
-      background-color: #f0f0f0;
-    }
-
-    .collapse__text {
-      padding: 10px;
-      background-color: #f0f0f0;
+      background-color: $secondary-color;
     }
   }
-}
 
-/* Media Queries pour les écrans plus petits */
-@media (max-width: 768px) {
-  .collapse {
+  &__text {
+    padding: 10px;
+    background-color: $secondary-color;
+    text-align: left;
+  }
+
+  @media (max-width: $breakpoint-medium) {
     &__header {
       padding: 8px;
 
@@ -65,7 +82,7 @@
         font-size: 1.2rem;
       }
 
-      button {
+      .collapse__button {
         font-size: 1.3rem;
       }
     }
@@ -78,10 +95,8 @@
       }
     }
   }
-}
 
-@media (max-width: 480px) {
-  .collapse {
+  @media (max-width: $breakpoint-small) {
     &__header {
       padding: 6px;
 
@@ -89,7 +104,7 @@
         font-size: 1rem;
       }
 
-      button {
+      .collapse__button {
         font-size: 1.1rem;
       }
     }
@@ -102,19 +117,12 @@
       }
     }
   }
-}
 
-/* Media Query pour les écrans de 375px de largeur */
-@media (max-width: 375px) {
-  .collapse {
+  @media (max-width: $breakpoint-extra-small) {
     &__header {
       padding: 5px;
 
-      h2 {
-        font-size: 0.9rem;
-      }
-
-      button {
+      .collapse__button {
         font-size: 0.9rem;
       }
     }
