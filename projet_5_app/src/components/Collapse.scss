@@ -64,13 +64,13 @@ $breakpoint-extra-small: 375px;
     &--open {
       height: auto;
       padding: 10px;
-      background-color: $secondary-color;
+      background-color: rgb(235, 235, 235);
     }
   }
 
   &__text {
     padding: 10px;
-    background-color: $secondary-color;
+    background-color: rgb(235, 235, 235);
     text-align: left;
   }
 
