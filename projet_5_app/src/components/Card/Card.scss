@@ -76,23 +76,34 @@
 }
 
 @media (max-width: 375px) {
-  .card {
-    height: 300px !important; 
 
-    &__image-container {
-      height: 100% !important; 
-      overflow: hidden; 
+  .home {
+    .home__cards {
+      grid-template-columns: 1fr; 
+      gap: 1rem;
+      background-color: #ffffff;
+      padding: 0;
     }
 
-    &__image {
-      height: 100% !important; 
-      object-fit: cover !important; 
-    }
+    .card {
+      width: 335px;
+      height: 255px;
+      margin-bottom: 1rem;
 
-    &__title {
-      font-size: 0.8rem !important;
-      bottom: 10px; 
-      left: 10px; 
+      .card__image-container {
+        width: 335px;
+        height: 255px;
+      }
+
+      .card__image {
+        width: 335px;
+        height: 255px;
+        object-fit: cover;
+      }
+
+      .card__title {
+        font-size: 0.8rem;
+      }
     }
   }
 }
