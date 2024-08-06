@@ -1,10 +1,14 @@
-import React from 'react';
-import Collapse from './Collapse';
-import Banner from './Banner';
-import aboutBannerImage from '../assets/AboutImage.png';
-import './About.scss';
+import React, { useState } from 'react';
+import Banner from '../Banner/Banner';
+import aboutBannerImage from '../../assets/AboutImage.png'; 
+import Collapse from '../Collapse/Collapse';
+import '../../styles/Variables.scss'; 
+import '../../styles/Mixins.scss'; 
+import './About.scss'; 
 
 const About = () => {
+  const [isCollapseOpen, setIsCollapseOpen] = useState(false);
+
   const collapsesData = [
     {
       title: <span className="highlight">Fiabilité</span>,
@@ -24,13 +28,19 @@ const About = () => {
     }
   ];
 
+  const handleCollapseToggle = () => {
+    setIsCollapseOpen(!isCollapseOpen);
+  };
+
   return (
     <div className="about">
       <Banner imageUrl={aboutBannerImage} filter="brightness(80%)" />
-      <div className="about__collapses">
-        {collapsesData.map((item, index) => (
-          <Collapse key={index} title={item.title} content={item.content} />
-        ))}
+      <div className={`layout__main ${isCollapseOpen ? 'no-padding collapse-open' : 'no-padding'}`}>
+        <div className="about__collapses">
+          {collapsesData.map((item, index) => (
+            <Collapse key={index} title={item.title} content={item.content} onToggle={handleCollapseToggle} />
+          ))}
+        </div>
       </div>
     </div>
   );

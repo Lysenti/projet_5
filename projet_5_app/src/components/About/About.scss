@@ -1,0 +1,76 @@
+@import '../../styles/Variables';
+@import '../../styles/Mixins';
+
+.about {
+  .about__collapses {
+    margin: auto;
+    width: 1023px !important;
+    min-height: 300px !important;
+    //padding-bottom: 50px ;
+  }
+
+  .highlight {
+    color: white;
+  }
+
+  .collapse {
+    padding-top: 5px;
+    margin-bottom: 25px;
+
+    &__header {
+      h2 {
+        font-size: 24px; 
+      }
+      padding: 15px 10px;
+    }
+
+    &:last-child {
+      margin-bottom: 20px; 
+    }
+
+  }
+
+  .banner {
+    margin-bottom: 30px;
+    margin-top: -18px; 
+  }
+}
+
+@media (max-width: 1024px) {
+  .about {
+    .about__collapses {
+      width: 100%;
+      height: auto;
+      padding: 0 20px;
+      margin: 15px;
+    }
+
+    .collapse {
+      margin-bottom: 15px;
+    }
+
+    .banner {
+      margin-top: 15px;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    .about__collapses {
+      width: 100%;
+      padding: 0 10px;
+      margin: 10px;
+    }
+
+    .collapse {
+      margin-bottom: 10px;
+    }
+
+    .banner {
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+  }
+}

@@ -1,5 +1,5 @@
-@import 'variables';
-@import 'mixins';
+@import '../../styles/Variables';
+@import '../../styles/Mixins';
 
 // Variables
 $text-color: white;
@@ -20,7 +20,9 @@ $breakpoint-extra-small: 375px;
   margin: 10px 0;
   @include border-radius(5px);
   overflow: hidden;
-  @include transition(all, $transition-time, ease-in-out);
+  width: 100%;
+  @include transition(height, $transition-time, ease);
+  @include transition(padding, $transition-time, ease);
 
   &__header {
     display: flex;
@@ -28,11 +30,15 @@ $breakpoint-extra-small: 375px;
     align-items: center;
     background-color: $primary-color;
     padding: 10px;
+    height: 52px;
     cursor: pointer;
 
     h2 {
       margin: 0;
       color: $text-color;
+      font-size: 18px;
+      flex: 1;
+      text-align: left;
     }
 
     .collapse__button {
@@ -49,7 +55,7 @@ $breakpoint-extra-small: 375px;
       }
 
       &.open .collapse__icon {
-        transform: rotate(180deg); 
+        transform: rotate(180deg);
       }
     }
   }
@@ -60,6 +66,8 @@ $breakpoint-extra-small: 375px;
     height: 0;
     padding: 0 10px;
     text-align: left;
+    font-size: 18px;
+    width: 100%;
 
     &--open {
       height: auto;
@@ -88,7 +96,7 @@ $breakpoint-extra-small: 375px;
     }
 
     &__content {
-      padding: 0 8px;
+      padding: 8px;
 
       &--open {
         padding: 8px;
@@ -110,7 +118,7 @@ $breakpoint-extra-small: 375px;
     }
 
     &__content {
-      padding: 0 6px;
+      padding: 6px;
 
       &--open {
         padding: 6px;
@@ -128,7 +136,7 @@ $breakpoint-extra-small: 375px;
     }
 
     &__content {
-      padding: 0 5px;
+      padding: 5px;
 
       &--open {
         padding: 5px;

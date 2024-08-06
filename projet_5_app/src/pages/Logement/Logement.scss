@@ -1,41 +1,41 @@
-// Logement.scss
-@import 'variables';
-@import 'mixins';
+@import '../../styles/Variables';
+@import '../../styles/Mixins';
 
 .logement-container {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 20px;
 }
 
 .logement {
   .slideshow {
-    margin-bottom: 2rem;
-    height: 400px;
+    margin-bottom: 1.5rem;
+    height: 415px;
   }
 
   .logement-content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 1rem;
 
     .logement-details {
       flex: 2;
       margin-right: 1rem;
 
       .logement-header {
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
 
         h1 {
           text-align: left;
           color: $primary-color;
           margin: 0;
+          margin-top: 0.5rem;
+          font-size: 36px; 
+          font-weight: normal;
         }
       }
 
       .location {
-        font-size: 1.5rem;
+        font-size: 18px;
         margin-bottom: 1rem;
         text-align: left;
       }
@@ -47,12 +47,21 @@
         margin-bottom: 1rem;
 
         .tag {
-          min-width: 15vh;
-          height: 15px;
+          min-width: 115px;
+          width: auto;
+          max-width: 100%;
+          height: 25px;
           background-color: $primary-color;
           color: white;
-          padding: 0.5rem 0.5rem 1rem;
+          font-weight: bold;
+          font-size: 14px;
+          margin-top: 5px;
+          padding: 0.5rem 10px;
           @include border-radius($border-radius);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          white-space: nowrap;
         }
       }
     }
@@ -67,18 +76,19 @@
         display: flex;
         align-items: center;
         margin-bottom: 1rem;
-        order: 2; 
+        order: 2;
 
         .host-name {
-          margin-right: 1rem;
+          margin-right: 3rem;
           color: $primary-color;
           max-width: 45px;
           padding-right: 10px;
+          font-size: 18px;
         }
 
         .host-picture-container {
-          width: 50px;
-          height: 50px;
+          width: 65px;
+          height: 65px;
           @include border-radius(50%);
           overflow: hidden;
           display: flex;
@@ -95,17 +105,13 @@
 
       .rating {
         display: flex;
-        margin-top: 1rem;
-        order: 2; 
+        margin-top: 0.7rem;
+        order: 2;
 
         .star {
-          font-size: 1.5rem;
-          color: #c2c2c2;
-          margin-right: 0.2rem;
-
-          &.filled {
-            color: lighten($primary-color, 10%);
-          }
+          width: 24px;
+          height: 24px;
+          margin-right: 0.85rem;
         }
       }
     }
@@ -114,7 +120,7 @@
   .collapse-container {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 70px;
     margin-bottom: 1rem;
 
     .collapse {
@@ -163,6 +169,7 @@
         transition: height 0.3s ease, padding 0.3s ease;
         height: 0;
         padding: 0 10px;
+        margin-bottom: 0;
 
         &--open {
           height: auto;
@@ -175,6 +182,15 @@
           background-color: $background-color;
         }
       }
+    }
+  }
+
+  .layout__footer {
+    margin-top: 10px; // Espace par défaut
+    transition: margin-top 0.3s ease; // Ajout de la transition
+
+    &.collapse-open {
+      margin-top: 30px; // Espace plus grand lorsque le collapse est ouvert
     }
   }
 }
@@ -203,7 +219,7 @@
         .tags {
           .tag {
             padding: 0.2rem 0.5rem;
-            font-size: 0.9rem;
+            font-size: 14px;
             min-width: 10vh;
           }
         }

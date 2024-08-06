@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import data from '../data.json';
-import Slideshow from './Slideshow';
-import Collapse from './Collapse';
+import data from '../../data.json';
+import Slideshow from '../../components/Slideshow/Slideshow';
+import Collapse from '../../components/Collapse/Collapse';
 import './Logement.scss';
+import starActive from '../../assets/star-active 1.png';
+import starInactive from '../../assets/star-inactive.png';
 
-const Logement = () => {
+const Logement = ({rating}) => {
+  const totalStars = 5;
   const { id } = useParams();
   const logement = data.find((item) => item.id === id);
 
@@ -37,8 +40,13 @@ const Logement = () => {
               </div>
             </div>
             <div className="rating">
-              {Array.from({ length: 5 }, (_, index) => (
-                <span key={index} className={index < logement.rating ? 'star filled' : 'star'}>&#9733;</span>
+              {Array.from({ length: totalStars }, (_, index) => (
+                <img
+                key={index}
+                src={index < rating ? starActive : starInactive}
+                alt={index < rating ? 'Active Star' : 'Inactive Star'}
+                className="star"
+              />
               ))}
             </div>
           </div>

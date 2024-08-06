@@ -1,0 +1,38 @@
+// Global.scss
+@import './Variables';
+@import './Mixins';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+
+}
+
+#root {
+  max-width: 1454px;
+  height: 1065px;
+  margin: 0 auto;
+  padding: 0;
+  overflow: auto;
+}
+
+// Media queries for desktop
+@media (min-width: 1454px) {
+  #root {
+    width: 1454px;
+  }
+}
+
+@media (max-width: 1454px) {
+  #root {
+    width: 100%;
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Layout.scss';
-import logo from '../assets/logo.png'; 
+import logo from '../../assets/logo.png';
 
 const Layout = ({ children }) => {
   return (
@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
                 <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Accueil</NavLink>
               </li>
               <li>
-                <NavLink to="/about"  className={({ isActive }) => (isActive ? 'active' : '')}>À Propos</NavLink>
+                <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>À Propos</NavLink>
               </li>
             </ul>
           </nav>

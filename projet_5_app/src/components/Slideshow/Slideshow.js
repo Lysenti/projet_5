@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Slideshow.scss';
+import arrowBack from '../../assets/arrow_back_ios-24px 1.png';
+import arrowForward from '../../assets/arrow_forward_ios-24px 1.png';
 
 const Slideshow = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -37,22 +39,22 @@ const Slideshow = ({ images }) => {
     <div className="slideshow">
       {images.length > 1 && (
         <button onClick={prevSlide} className="arrow left-arrow">
-          &laquo;
+        <img src={arrowBack} alt="Previous" />
         </button>
       )}
       <div className="slide-container">
         {images.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt="Slideshow"
-            className={`slide ${index === currentIndex ? 'active' : ''} ${animating ? 'animating' : ''}`}
-          />
+          <div
+          key={index}
+          className={`slide ${index === currentIndex ? 'active' : ''} ${animating ? 'animating' : ''}`}
+        >
+          <img src={image} alt="Slideshow" />
+          </div>
         ))}
       </div>
       {images.length > 1 && (
         <button onClick={nextSlide} className="arrow right-arrow">
-          &raquo;
+          <img src={arrowForward} alt="Next" />
         </button>
       )}
       {images.length > 1 && (

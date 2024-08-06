@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import './Collapse.scss';
 
-const Collapse = ({ title, content }) => {
+const Collapse = ({ title, content, onToggle }) => {
   const [isOpen, setIsOpen] = useState(false);
   const contentRef = useRef(null);
   const [height, setHeight] = useState("0px");
@@ -14,6 +14,7 @@ const Collapse = ({ title, content }) => {
 
   const toggleCollapse = () => {
     setIsOpen(!isOpen);
+    if (onToggle) onToggle();
   };
 
   return (
