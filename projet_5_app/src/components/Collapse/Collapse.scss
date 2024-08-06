@@ -3,7 +3,8 @@
 
 // Variables
 $text-color: white;
-$transition-time: 0.3s;
+$transition-time: 1.5s; 
+$max-height: 1000px;
 
 // Mixin pour la transition
 @mixin transition($property, $duration, $ease) {
@@ -18,11 +19,10 @@ $breakpoint-extra-small: 375px;
 .collapse {
   border: 1px solid $text-color;
   margin: 10px 0;
-  @include border-radius(5px);
-  overflow: hidden;
+  overflow: hidden; 
   width: 100%;
-  @include transition(height, $transition-time, ease);
-  @include transition(padding, $transition-time, ease);
+  box-sizing: border-box;
+  @include border-radius(5px); 
 
   &__header {
     display: flex;
@@ -32,6 +32,8 @@ $breakpoint-extra-small: 375px;
     padding: 10px;
     height: 52px;
     cursor: pointer;
+    box-sizing: border-box;
+    @include border-radius(5px 5px 0 0);
 
     h2 {
       margin: 0;
@@ -50,37 +52,49 @@ $breakpoint-extra-small: 375px;
       align-items: center;
 
       .collapse__icon {
-        color: $text-color;
         @include transition(transform, $transition-time, ease);
-        font-size: 2rem;
-        padding-right: 12px;
+        width: 40px;
+        height: 40px;
+        transform: rotate(90deg);
+        padding-right: 5px;
+        margin-right: 10px;
       }
 
       &.open .collapse__icon {
-        transform: rotate(180deg);
+        transform: rotate(270deg);
       }
     }
   }
 
   &__content {
     overflow: hidden;
-    @include transition(height, $transition-time, ease);
-    height: 0;
-    padding: 0 10px;
+    max-height: 0;
+    opacity: 0; 
     text-align: left;
     font-size: 18px;
     width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    @include transition(max-height, $transition-time, ease);
+    @include transition(padding, $transition-time, ease);
+    @include transition(opacity, $transition-time, ease); 
 
     &--open {
-      height: auto;
-      padding: 10px;
-      background-color: rgb(235, 235, 235);
+      max-height: $max-height;
+      opacity: 1; 
+      background-color: rgb(245, 245, 245);
+      @include border-radius(0 0 5px 5px); 
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
     }
   }
 
   &__text {
     padding: 10px;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(245, 245, 245); 
     text-align: left;
   }
 
@@ -107,6 +121,7 @@ $breakpoint-extra-small: 375px;
   }
 
   @media (max-width: $breakpoint-small) {
+   
     &__header {
       padding: 6px;
 
@@ -120,8 +135,6 @@ $breakpoint-extra-small: 375px;
     }
 
     &__content {
-      padding: 6px;
-
       &--open {
         padding: 6px;
       }
@@ -129,19 +142,48 @@ $breakpoint-extra-small: 375px;
   }
 
   @media (max-width: $breakpoint-extra-small) {
+    .collapse {
+      margin: 0;
+      width: calc(100% - 30px); 
+    }
+
     &__header {
-      padding: 5px;
+      margin-left: 15px; 
+      padding: 6px; 
+      height: 30px;
+      width: 335px;
+      //width: calc(100% - 15px);
+      @include border-radius(5px 5px 5px 5px);
+      
+      h2 {
+        font-size: 0.8rem; 
+      }
 
       .collapse__button {
-        font-size: 0.9rem;
+        font-size: 1.1rem;
+
+        .collapse__icon {
+          width: 24px;
+          height: 24px; 
+          font-weight: bold;
+          transform: rotate(90deg);
+        }
+
+        &.open .collapse__icon {
+          transform: rotate(270deg);
+        }
       }
     }
 
     &__content {
-      padding: 5px;
+      padding: 0; 
+      margin-left: 15px;
+      width: 335px;
+      @include border-radius(0 0 5px 5px); 
+      font-size: 0.8rem; 
 
       &--open {
-        padding: 5px;
+        padding: 5px; 
       }
     }
   }

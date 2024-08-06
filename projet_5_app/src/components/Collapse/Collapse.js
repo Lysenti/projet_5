@@ -1,34 +1,36 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import './Collapse.scss';
+import arrowIcon from '../../assets/arrow_back_ios-24px 1.png'; // Assurez-vous que ce chemin est correct
 
-const Collapse = ({ title, content, onToggle }) => {
+const Collapse = ({ title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
   const contentRef = useRef(null);
-  const [height, setHeight] = useState("0px");
 
   useEffect(() => {
-    setHeight(isOpen ? `${contentRef.current.scrollHeight}px` : "0px");
+    if (isOpen) {
+      contentRef.current.style.maxHeight = `${contentRef.current.scrollHeight}px`;
+      contentRef.current.style.opacity = '1';
+    } else {
+      contentRef.current.style.maxHeight = '0';
+      contentRef.current.style.opacity = '0';
+    }
   }, [isOpen]);
 
-  const toggleCollapse = () => {
+  const handleToggle = () => {
     setIsOpen(!isOpen);
-    if (onToggle) onToggle();
   };
 
   return (
-    <div className="collapse">
-      <div className="collapse__header" onClick={toggleCollapse}>
+    <div className={`collapse ${isOpen ? 'collapse--open' : ''}`}>
+      <div className="collapse__header" onClick={handleToggle}>
         <h2>{title}</h2>
         <button className={`collapse__button ${isOpen ? 'open' : ''}`}>
-          <FontAwesomeIcon icon={faAngleUp} className={`collapse__icon ${isOpen ? 'open' : ''}`} />
+          <img src={arrowIcon} alt="Arrow Icon" className="collapse__icon" />
         </button>
       </div>
       <div
+        className="collapse__content"
         ref={contentRef}
-        className={`collapse__content ${isOpen ? 'collapse__content--open' : ''}`}
-        style={{ height }}
       >
         <div className="collapse__text">
           {content}

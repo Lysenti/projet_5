@@ -29,7 +29,7 @@
           color: $primary-color;
           margin: 0;
           margin-top: 0.5rem;
-          font-size: 36px; 
+          font-size: 36px;
           font-weight: normal;
         }
       }
@@ -123,74 +123,19 @@
     gap: 70px;
     margin-bottom: 1rem;
 
+
     .collapse {
       flex: 1;
       margin-bottom: 1rem;
 
-      .collapse__header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-        background-color: $primary-color;
-        padding: 5px 10px;
-        @include border-radius($border-radius);
-
-        h2 {
-          margin: 0;
-          color: white;
-        }
-
-        button {
-          background: none;
-          border: none;
-          font-size: 1.5rem;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-
-          &:hover {
-            background-color: darken($primary-color, 10%);
-          }
-
-          .collapse-icon {
-            color: white;
-            transition: transform 0.3s ease;
-          }
-
-          &.open .collapse-icon {
-            transform: rotate(180deg);
-          }
-        }
-      }
-
-      .collapse__content {
-        overflow: hidden;
-        transition: height 0.3s ease, padding 0.3s ease;
-        height: 0;
-        padding: 0 10px;
-        margin-bottom: 0;
-
-        &--open {
-          height: auto;
-          padding: 10px;
-          background-color: $background-color;
-        }
-
-        .collapse__text {
-          padding: 10px;
-          background-color: $background-color;
-        }
-      }
     }
   }
 
   .layout__footer {
-    margin-top: 10px; // Espace par défaut
-    transition: margin-top 0.3s ease; // Ajout de la transition
-
+    margin-top: 10px;
+    transition: margin-top 0.3s ease; 
     &.collapse-open {
-      margin-top: 30px; // Espace plus grand lorsque le collapse est ouvert
+      margin-top: 30px; 
     }
   }
 }
@@ -200,6 +145,7 @@
   .logement {
     .slideshow {
       height: 300px;
+      margin-bottom: 0.2rem;
     }
 
     .logement-content {
@@ -213,12 +159,14 @@
         }
 
         .location {
-          font-size: 0.9rem;
+          font-size: 14px;
+          font-weight: bold;
+          padding-top: 5px;
         }
 
         .tags {
           .tag {
-            padding: 0.2rem 0.5rem;
+            margin-top: -1px;
             font-size: 14px;
             min-width: 10vh;
           }
@@ -242,25 +190,29 @@
       height: 255px;
       width: 355px;
       padding-left: 20px;
+
     }
 
     .logement-content {
       .logement-details {
+        margin-left: 1.1rem;
+        
         .logement-header {
           h1 {
-            font-size: 1.2rem;
+            font-size: 18px;
           }
         }
 
         .location {
-          font-size: 1rem;
+          font-size: 14px;
         }
 
         .tags {
           .tag {
-            padding: 0.2rem 0.5rem;
-            font-size: 0.8rem;
-            min-width: 5vh;
+            border-radius: 5px;
+            font-size: 10px;
+            min-width: 84px;
+            height: 18px;
           }
         }
       }
@@ -269,28 +221,36 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        gap: 90px;
+        gap: 40px;
+        margin-bottom: 10px;
 
         .host-container {
           margin-bottom: 0;
           order: 2;
 
           .host-name {
-            font-size: 0.8rem;
+            margin-right: 1rem;
+            max-width: 45px;
+            font-size: 12px;
+            font-weight: bold;
           }
 
           .host-picture-container {
-            width: 25px;
-            height: 25px;
+            width: 32px;
+            height: 32px;
           }
         }
 
         .rating {
           margin-top: 0;
           order: 1;
+          margin-left: 17px;
+          margin-right: 6.5rem;
 
           .star {
-            font-size: 1rem;
+            width: 16px; 
+            height: 16px;
+            margin-right: 0.2rem;
           }
         }
       }
@@ -299,18 +259,12 @@
     .collapse-container {
       flex-direction: column;
       gap: 0;
-
+  
       .description, .equipments {
         .collapse-header {
           button {
             padding: 0.2rem 0.5rem;
             font-size: 0.8rem;
-
-            .collapse-icon {
-              color: white;
-              transition: transform 0.3s ease;
-            }
-
           }
         }
 

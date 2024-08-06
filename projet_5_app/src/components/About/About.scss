@@ -1,12 +1,12 @@
 @import '../../styles/Variables';
 @import '../../styles/Mixins';
 
+
 .about {
   .about__collapses {
     margin: auto;
     width: 1023px !important;
     min-height: 300px !important;
-    //padding-bottom: 50px ;
   }
 
   .highlight {
@@ -19,20 +19,19 @@
 
     &__header {
       h2 {
-        font-size: 24px; 
+        font-size: 24px;
       }
       padding: 15px 10px;
     }
 
     &:last-child {
-      margin-bottom: 20px; 
+      margin-bottom: 20px;
     }
-
   }
 
   .banner {
     margin-bottom: 30px;
-    margin-top: -18px; 
+    margin-top: -18px;
   }
 }
 
@@ -60,7 +59,7 @@
   .about {
     .about__collapses {
       width: 100%;
-      padding: 0 10px;
+      padding: 0 5px;
       margin: 10px;
     }
 
@@ -71,6 +70,45 @@
     .banner {
       margin-top: 10px;
       margin-bottom: 20px;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .about {
+    .about__collapses {
+      //width: calc(100% - 30px); // Ajuste la largeur pour la marge
+      margin: 0;
+
+    }
+
+    .collapse {
+      margin: 0;
+      margin-bottom: 10px;
+
+      &__header {
+        padding: 6px;
+        height: 30px;
+        width: 335px;
+        @include border-radius(5px);
+      }
+
+      h2 {
+        font-size: 0.8rem;
+      }
+
+      &__content {
+        padding: 0;
+        margin-left: 15px;
+        width: 335px;
+        @include border-radius(0 0 5px 5px);
+        font-size: 0.8rem;
+      }
+    }
+
+    .banner {
+      margin-top: -10px;
+      margin-bottom: 18px;
     }
   }
 }

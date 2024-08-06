@@ -7,7 +7,7 @@ import './Logement.scss';
 import starActive from '../../assets/star-active 1.png';
 import starInactive from '../../assets/star-inactive.png';
 
-const Logement = ({rating}) => {
+const Logement = () => {
   const totalStars = 5;
   const { id } = useParams();
   const logement = data.find((item) => item.id === id);
@@ -42,26 +42,26 @@ const Logement = ({rating}) => {
             <div className="rating">
               {Array.from({ length: totalStars }, (_, index) => (
                 <img
-                key={index}
-                src={index < rating ? starActive : starInactive}
-                alt={index < rating ? 'Active Star' : 'Inactive Star'}
-                className="star"
-              />
+                  key={index}
+                  src={index < logement.rating ? starActive : starInactive}
+                  alt={index < logement.rating ? 'Active Star' : 'Inactive Star'}
+                  className="star"
+                />
               ))}
             </div>
           </div>
         </div>
         <div className="collapse-container">
-        <Collapse title="Description" content={logement.description} />
-        <Collapse 
-            title="Équipements" 
+          <Collapse title="Description" content={logement.description} />
+          <Collapse
+            title="Équipements"
             content={(
               <ul>
                 {logement.equipments.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
               </ul>
-            )} 
+            )}
           />
         </div>
       </div>
