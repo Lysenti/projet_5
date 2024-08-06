@@ -52,6 +52,8 @@ $breakpoint-extra-small: 375px;
       .collapse__icon {
         color: $text-color;
         @include transition(transform, $transition-time, ease);
+        font-size: 2rem;
+        padding-right: 12px;
       }
 
       &.open .collapse__icon {

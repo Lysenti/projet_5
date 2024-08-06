@@ -2,12 +2,12 @@
 @import '../../styles/Mixins';
 
 .layout.notfound-page {
-    .layout__main {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 1000px;
-      }
+  .layout__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1000px;
+  }
 
   .not-found-content {
     display: flex;
@@ -32,6 +32,54 @@
       font-size: 18px; 
       color: black;
       text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .layout.notfound-page {
+    .not-found-content {
+      h1 {
+        font-size: 12rem; /* Ajuster la taille du h1 pour les écrans de 768px et moins */
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .layout.notfound-page {
+    .not-found-content {
+      h1 {
+        font-size: 8rem; /* Ajuster la taille du h1 pour les écrans de 480px et moins */
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .layout.notfound-page {
+    .not-found-content {
+      h1 {
+        margin-top: -435px;
+        font-size: 6rem; 
+      }
+
+      p.responsive-text {
+        font-size: 18px;
+        margin-top: 7rem;
+
+        .line-break::after {
+          content: "\A"; 
+          white-space: pre; 
+        }
+      }
+
+      .home-link {
+        margin-top: 7rem;
+        font-size: 14px; 
+        color: black;
+        text-decoration: underline;
+      }
     }
   }
 }

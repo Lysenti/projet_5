@@ -239,7 +239,9 @@
 @media (max-width: 375px) {
   .logement {
     .slideshow {
-      height: 250px;
+      height: 255px;
+      width: 355px;
+      padding-left: 20px;
     }
 
     .logement-content {
@@ -303,6 +305,12 @@
           button {
             padding: 0.2rem 0.5rem;
             font-size: 0.8rem;
+
+            .collapse-icon {
+              color: white;
+              transition: transform 0.3s ease;
+            }
+
           }
         }
 
