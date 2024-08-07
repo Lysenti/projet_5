@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Banner from '../Banner/Banner';
+import Banner from '../../components/Banner/Banner';
 import aboutBannerImage from '../../assets/AboutImage.png'; 
-import Collapse from '../Collapse/Collapse';
+import Collapse from '../../components/Collapse/Collapse';
 import '../../styles/Variables.scss'; 
 import '../../styles/Mixins.scss'; 
 import './About.scss'; 

@@ -31,6 +31,7 @@ const Collapse = ({ title, content }) => {
       <div
         className="collapse__content"
         ref={contentRef}
+        style={{ transition: 'max-height 1.5s ease, opacity 1.5s ease' }}
       >
         <div className="collapse__text">
           {content}
