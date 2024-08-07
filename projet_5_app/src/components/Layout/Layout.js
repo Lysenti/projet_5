@@ -13,7 +13,6 @@ const Layout = ({ children }) => {
             <ul>
               <li>
               <NavLink
-                  exact
                   to="/"
                   className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
                 >
