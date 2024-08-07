@@ -12,10 +12,21 @@ const Layout = ({ children }) => {
           <nav className="layout__nav">
             <ul>
               <li>
-                <NavLink to="/" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>Accueil</NavLink>
+              <NavLink
+                  exact
+                  to="/"
+                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                >
+                  Accueil
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/about" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>A Propos</NavLink>
+              <NavLink
+                  to="/about"
+                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                >
+                  A Propos
+                </NavLink>
               </li>
             </ul>
           </nav>

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Collapse.scss';
-import arrowIcon from '../../assets/arrow_back_ios-24px 1.png'; // Assurez-vous que ce chemin est correct
+import arrowIcon from '../../assets/arrow_back_ios-24px 1.png'; 
 
 const Collapse = ({ title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
